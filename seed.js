@@ -29,6 +29,48 @@ var albumsList =[{
             }
 ];
 
+/*  Approximate schema for these seeds
+var SongSchema = new Schema({
+  name: String,
+  trackNumber: Number,
+});
+*/
+
+
+var sampleSongs = [];
+
+sampleSongs.push({ name: 'Famous',
+                   trackNumber: 1
+});
+sampleSongs.push({ name: "All of the Lights",
+                   trackNumber: 2
+});
+sampleSongs.push({ name: 'Guilt Trip',
+                   trackNumber: 3
+});
+sampleSongs.push({ name: 'Paranoid',
+                   trackNumber: 4
+});
+sampleSongs.push({ name: 'Ultralight Beam',
+                   trackNumber: 5
+});
+sampleSongs.push({ name: 'Runaway',
+                   trackNumber: 6
+});
+sampleSongs.push({ name: 'Stronger',
+                   trackNumber: 7
+});
+
+// json.forEach(function(album, index) {
+//       renderAlbum(album);
+
+for (var i = 0; i < albumsList.length; i++) {
+  sampleSongs.forEach( function(song, index){
+      albumsList[i].songs = sampleSongs;
+  }); 
+  console.log(albumsList[i].songs);
+}
+
 db.Album.remove({}, function(err, albums){
 
   db.Album.create(albumsList, function(err, albums){
