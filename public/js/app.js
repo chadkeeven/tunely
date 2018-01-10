@@ -58,9 +58,22 @@
  
 });
 
+function buildSongsHtml(songs) {
+  //Make buildSongsHtml return the HTML shown above (or similar). 
+  //It should take in an array of songs. It should return an HTML string.
+  var songsString = "";
+  for (var i = 0; i < songs.length; i++) {
+   songsString +=  "(" + songs[i].trackNumber + ") "+ songs[i].name + "  ";
+}
+  var songHtml =
+ " <li class='list-group-item'>" +
+ " <h4 class='inline-header'>Songs:</h4>" +
+  "<span>" + songsString + "</span>" +
+"</li>";
+return songHtml;
+}
 
-
-
+//– (1) Famous – (2) All of the Lights
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
@@ -68,6 +81,7 @@ function renderAlbum(album) {
   var name = album.name;
   var artist = album.artistName;
   var releaseDate = album.releaseDate;
+  var songs = buildSongsHtml(album.songs);
 
 
   var albumHtml =
@@ -93,6 +107,7 @@ function renderAlbum(album) {
   "                        <h4 class='inline-header'>Released date:</h4>" +
   "                        <span class='album-releaseDate'>" + releaseDate + "</span>" +
   "                      </li>" +
+                          songs    +
   "                    </ul>" +
   "                  </div>" +
   "                </div>" +
