@@ -48,6 +48,9 @@
   $(".form-horizontal").submit(function(event){
     var formData = $(this).serialize();
         $.post("api/albums", formData);
+        $.get("/api/albums", function(json, status){
+          renderAlbum(json[json.length - 1]);
+        });
 
       event.preventDefault();
       $(this).trigger("reset");
