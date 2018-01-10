@@ -47,8 +47,10 @@
   });
   $(".form-horizontal").submit(function(event){
     var formData = $(this).serialize();
+        $.post("api/albums", formData);
+
       event.preventDefault();
-      $(this).reset();
+      $(this).trigger("reset");
   });
  
 });
